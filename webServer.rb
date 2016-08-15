@@ -17,3 +17,7 @@ end
 execute  'oracle-java7-installer' do
   command 'apt-get install -y oracle-java7-installer'
 end
+
+execute 'openjdk-7-jre-headless' do
+  command 'sudo install -y openjdk-7-jre-headless'
+end
