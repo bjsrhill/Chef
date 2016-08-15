@@ -14,6 +14,6 @@ execute "apt-get update" do
   command "apt-get update"
 end
 
-#execute  'oracle-java7-installer' do
-#  command 'apt-get install -y oracle-java7-installer'
-#end
+execute  'oracle-java7-installer' do
+  command 'apt-get install -y oracle-java7-installer'
+end
