@@ -16,17 +16,18 @@ apt_update 'Update the apt cache daily' do
   action :periodic
 end
 
-apt_package 'python-software-properties' do
+execute 'python-software-properties' do
+  command "apt-get install -y python-software-properties debconf-utils"
 end
 
 execute "add-apt-repository ppa:webupd8team/java" do
-  command "add-apt-repository ppa:webupd8team/java"
+  command "add-apt-repository -y ppa:webupd8team/java"
 end
 
 execute "apt-get update" do
   command "apt-get update"
 end
 
-execute  'oracle-java7-installer' do
-  command 'apt-get install -y oracle-java7-installer'
+execute "Install oracle-java8 accepting license"
+  command "echo 'oracle-java8-installer shared/accepted-oracle-license-v1-1 select true' | sudo debconf-set-selections"
 end
