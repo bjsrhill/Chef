@@ -11,6 +11,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
 apt_update 'Update the apt cache daily' do
   frequency 86_400
   action :periodic
@@ -28,6 +29,6 @@ execute "apt-get update" do
   command "apt-get update"
 end
 
-execute "Install oracle-java8 accepting license"
+execute "Install oracle-java8 accepting license" do
   command "echo 'oracle-java8-installer shared/accepted-oracle-license-v1-1 select true' | sudo debconf-set-selections"
 end
